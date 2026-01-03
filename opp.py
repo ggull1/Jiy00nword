@@ -40,7 +40,7 @@ if user_input:
     # 이미지 불러오기 루프
     for char in word:
         if char.isalpha():
-            img_path = os.path.join(IMAGE_DIR, f"{char}.png")
+            img_path = os.path.join(IMAGE_DIR, f"{char}.jpg")
             if os.path.exists(img_path):
                 images.append(Image.open(img_path))
     
