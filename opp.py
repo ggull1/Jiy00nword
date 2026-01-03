@@ -4,7 +4,7 @@ import os
 import datetime
 
 # 1. 페이지 설정 (브라우저 탭 이름과 아이콘)
-st.set_page_config(page_title="고대 상형문자 번환기", page_icon="📜", layout="centered")
+st.set_page_config(page_title="Jiy00n word", page_icon="", layout="centered")
 
 # 2. CSS를 이용한 스타일 꾸미기 (글자 크기, 배경 등)
 st.markdown("""
@@ -24,14 +24,14 @@ st.markdown("""
     </style>
     """, unsafe_allow_html=True)
 
-st.title("📜 고대 마법의 문자 번역기")
-st.subheader("당신의 이름을 상형문자로 바꿔보세요")
+st.title("Jiy00n word transfer site")
+st.subheader("words")
 
 # 이미지 폴더 경로
 IMAGE_DIR = "alphabet_images"
 
 # 3. 입력창 디자인
-user_input = st.text_input("영문 단어를 입력하고 Enter를 누르세요", placeholder="apple")
+user_input = st.text_input("Type words", placeholder="what?")
 
 if user_input:
     word = user_input.lower()
@@ -57,7 +57,7 @@ if user_input:
         
         # 5. 결과 출력 섹션
         st.write("---")
-        st.success(f"'{user_input}'의 번역 결과입니다!")
+        st.success(f"'{user_input}' success")
         
         # 이미지를 화면 중앙에 배치
         st.image(combined_img, use_container_width=True)
@@ -65,20 +65,20 @@ if user_input:
         # 6. 저장 안내 및 버튼
         col1, col2 = st.columns(2)
         with col1:
-            st.info("💡 아이패드/모바일: 위 이미지를 1초간 꾹 눌러 [사진 앱에 저장]하세요.")
+            st.info("Save to click.")
         with col2:
             # 임시 저장 후 다운로드 버튼 생성
             combined_img.save("result.png")
             with open("result.png", "rb") as file:
                 st.download_button(
-                    label="💾 이미지 파일로 저장",
+                    label="download",
                     data=file,
-                    file_name=f"{user_input}_translation.png",
+                    file_name=f"{user_input}_Jword.png",
                     mime="image/png"
                 )
     else:
-        st.warning("알파벳 이미지를 찾을 수 없습니다. 철자를 확인해주세요!")
+        st.warning("Cannot find image")
 
 # 7. 푸터(하단 설명)
 st.write("---")
-st.caption("© 2024 상형문자 변환기 프로젝트 | 제작: 파이썬 마스터")
+st.caption("© 2026 Cave of Jiy00n word site | Jiyoon Park")
